@@ -47,8 +47,8 @@ mix.webpackConfig({
   module: {
     rules: [
       {
-        test: /resources[\\\/]lang.+\.(php|json)$/,
-        loader: 'laravel-localization-loader',
+        test: /resources[\\\/]lang.+\.(php)$/,
+        loader: 'php-array-loader',
       },
     ],
   },
@@ -79,8 +79,7 @@ const app = new Vue({
 
 You can now use the following in any Vue file:
 
-- `$t(key: string, replacements?: Replacements, locale?: string)` - To translate `key` with variables `replacements` and locale `locale`.
-- `$_` - Alias for above method
+- `__(key: string, replacements?: Replacements, locale?: string)` - To translate `key` with variables `replacements` and locale `locale`.
 - `$lang()` - Returns the `lang.js` object.
 
 Example:
@@ -88,18 +87,31 @@ Example:
 ```html
 <template>
   <div>
-    <span>{{ $t('messages.hello') }}</span>
+    <span>{{ __('messages.hello') }}</span>
   </div>
 </template>
 
 <script>
   export default {
     created() {
-      console.log(this.$t('messages.hello'));
+      console.log(this.__('messages.hello'));
     },
   };
 </script>
 ```
+
+### `Support for String as Keys`
+This package supports the usage of Strings as Keys for application with heavy translation requirements. As proposed by [Laravel](https://laravel.com/docs/7.x/localization#using-translation-strings-as-keys) the way to archive this is by adding a `_global` key.
+
+Example:
+```html
+<template>
+  <div>
+    <span>{{ __('_global.This is a long string as key') }}</span>
+  </div>
+</template>
+```
+
 
 ## Options
 

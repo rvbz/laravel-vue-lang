@@ -1,6 +1,6 @@
 {
   "name": "laravel-vue-lang",
-  "version": "2.0.1",
+  "version": "3.1.0-alpha",
   "description": "A localization package for Vue and Laravel.",
   "main": "dist/index.js",
   "author": {
@@ -33,12 +33,13 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-typescript": "^7.6.0",
-    "@types/webpack-env": "^1.14.1",
+    "@types/node": "^13.9.2",
+    "@types/webpack-env": "^1.15.1",
     "typescript": "^3.7.2"
   },
   "dependencies": {
     "lang.js": "^1.1.14",
-    "laravel-localization-loader": "^1.0.5",
+    "php-array-loader": "^1.0.1",
     "vue": "^2.6.10"
   },
   "peerDependencies": {
